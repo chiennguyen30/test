@@ -1,0 +1,72 @@
+<body>
+  <div class="container">
+    <main>
+      <div class="breadcrumb">
+        <a routerLink="/userlist" routerLinkActive="active">User List</a> > Create User
+      </div>
+      <section class="form-section">
+        <form (ngSubmit)="createUser()" #userForm="ngForm">
+          <div class="form-container">
+            <div class="form-column">
+              <div class="form-group">
+                <label for="username">Username<span class="required">*</span></label>
+                <input type="text" id="username" name="username" [(ngModel)]="user.userName" placeholder="Username" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email<span class="required">*</span></label>
+                <input type="email" id="email" name="email" [(ngModel)]="user.email" placeholder="Email" required>
+              </div>
+              <div class="form-group">
+                <label for="dob">DOB<span class="required">*</span></label>
+                <input type="date" id="dob" name="dob" [(ngModel)]="user.dob" required>
+              </div>
+              <div class="form-group">
+                <label for="department">Department<span class="required">*</span></label>
+                <select id="department" name="department" [(ngModel)]="user.departmentName" required>
+                  <option *ngFor="let dept of departments" [value]="dept">{{ dept }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="role">Role<span class="required">*</span></label>
+                <select id="role" name="role" [(ngModel)]="user.description" required>
+                  <option *ngFor="let rol of roles" [ngValue]="rol">{{ rol }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" [(ngModel)]="user.notes" placeholder="Notes"></textarea>
+              </div>
+            </div>
+            <div class="form-column">
+              <div class="form-group">
+                <label for="fullname">Full name<span class="required">*</span></label>
+                <input type="text" id="fullname" name="fullname" [(ngModel)]="user.fullName" placeholder="Full name" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number<span class="required">*</span></label>
+                <input type="tel" id="phone" name="phone" [(ngModel)]="user.phoneNumber" placeholder="Phone number" required>
+              </div>
+              <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" name="address" [(ngModel)]="user.address" placeholder="Address">
+              </div>
+              <div class="form-group">
+                <label for="position">Position<span class="required">*</span></label>
+                <select id="position" name="position" [(ngModel)]="user.position" required>
+                  <option *ngFor="let pos of positions" [ngValue]="pos.value">{{ pos.label }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="status">Status</label>
+                <input type="text" id="status" name="status" [value]="user ? getStatusLabel(user.status) : 'Unknown'" disabled>              </div>
+            </div>
+          </div>
+          <div class="form-a">
+            <button class="submit" type="submit" >Submit</button>
+            <a class="cancel" routerLink="/user-management" routerLinkActive="active">Cancel</a>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+</body>

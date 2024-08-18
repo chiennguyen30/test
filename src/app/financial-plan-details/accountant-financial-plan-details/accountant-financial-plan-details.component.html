@@ -1,0 +1,46 @@
+<div class="create-plan">
+    <div class="header">
+      <h2>Financial Plan Management</h2>
+      <p>
+        <a href="/accountant-financial-plan-list" style="text-decoration: underline; color: black;">Plan List</a> &gt;
+        <span>plan-details</span>
+      </p>
+    </div>
+  
+    <form>
+      <div class="plan-details">
+        <div class="plan-detail">
+          <span class="label">Plan Name</span>
+          <span class="value">{{ plan?.financialPlanName }}</span>
+        </div>
+        <div class="plan-detail">
+          <span class="label">Version</span>
+          <span class="value">{{ plan?.version }}</span>
+        </div>
+        <div class="plan-detail">
+          <span class="label">Expense</span>
+          <span class="value">{{ plan?.expense}}</span>
+        </div>
+        <div class="plan-detail">
+          <span class="label">Project Name</span>
+          <span class="value">{{ plan?.projectName}}</span>
+        </div>
+        <div class="plan-detail">
+          <span class="label">PIC</span>
+          <span class="value">{{ plan?.pic }}</span>
+        </div>
+        <div class="plan-detail">
+          <span class="label">Notes</span>
+          <span class="value">{{ plan?.notes }}</span>
+        </div>
+      </div>
+  
+     
+      
+  
+      <div class="form-buttons">
+        <button type="button" class="cancel-btn" (click)="onCancel()">Back</button>
+      </div>
+    </form>
+  </div> 
+  

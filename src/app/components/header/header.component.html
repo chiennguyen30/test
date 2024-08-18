@@ -1,0 +1,70 @@
+<header class="header">
+  <div class="header__top">
+    <div class="header__logo">
+      <a routerLink="/home" routerLinkActive="active" class="header__nav-link">
+        <i class="fas fa-coins"></i>
+      </a>
+    </div>
+    <h1 class="header__title">FINANCIAL PLAN SYSTEM</h1>
+    <div class="header__user" *ngIf="userService.isLoggedIn(); else loginLink">
+      <div class="dropdown">
+        <button class="dropbtn">
+          <span>{{ userService.getUser()?.fullName }} {{ userService.getUser()?.department }}</span>
+          <i class="fas fa-user"></i>
+        </button>
+        <div class="dropdown-content">
+          <button mat-button (click)="confirmLogout()">Logout</button>
+        </div>
+      </div>
+    </div>
+    <ng-template #loginLink>
+      <a style="font-weight: bold; color: #000; font-size: large;" routerLink="/login" routerLinkActive="active" class="header__user-link">
+        Login
+      </a>
+    </ng-template>
+  </div>
+
+  <!-- Navigation for logged-in users -->
+  <nav class="header__nav" *ngIf="userService.isLoggedIn(); else guestNav">
+    <ul class="header__nav-list">
+      <li class="header__nav-item">
+        <a (click)="navigateTo('/home')" class="header__nav-link">Home</a>
+      </li>
+      <li *ngIf="isFinancialStaff || isAdmin||isAccountant" class="header__nav-item">
+        <a (click)="navigateTo('/financial-staff-financial-plan-list')" class="header__nav-link">Financial Plan</a>
+      </li>
+      <li *ngIf="isAccountant || isFinancialStaff || isAdmin" class="header__nav-item">
+        <a (click)="navigateTo('/monthly-report-list')" class="header__nav-link">Financial Report</a>
+      </li>
+      <li *ngIf="isAccountant || isAdmin ||isFinancialStaff" class="header__nav-item">
+        <a (click)="navigateTo('/term-management')" class="header__nav-link">Term Management</a>
+      </li>
+      <li *ngIf="isAdmin" class="header__nav-item">
+        <a (click)="navigateTo('/user-management')" class="header__nav-link">User Management</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Navigation for guests -->
+  <ng-template #guestNav>
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        <li class="header__nav-item">
+          <a (click)="navigateTo('/home')" class="header__nav-link">Home</a>
+        </li>
+        <li>
+          <a (click)="navigateTo('/financial-staff-financial-plan-list')" class="header__nav-link">Financial Plan</a>
+        </li>
+        <li>
+          <a (click)="navigateTo('/monthly-report-list')" class="header__nav-link">Financial Report</a>
+        </li>
+        <li>
+          <a (click)="navigateTo('/term-management')" class="header__nav-link">Term Management</a>
+        </li>
+        <li>
+          <a (click)="navigateTo('/user-management')" class="header__nav-link">User Management</a>
+        </li>
+      </ul>
+    </nav>
+  </ng-template>
+</header>

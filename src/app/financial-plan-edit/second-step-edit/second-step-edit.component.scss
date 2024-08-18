@@ -1,0 +1,181 @@
+/* Phần CSS cơ bản (đã có) */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e5e5e5;
+    margin: 0;
+    padding: 20px;
+    height: auto;
+    width: auto;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 28px; /* Tăng kích thước font cho tiêu đề chính */
+    font-weight: bold;
+}
+
+.subtitle {
+    margin-top: 5px;
+    font-size: 16px; /* Tăng kích thước font cho phụ đề */
+    color: #666;
+}
+
+.subtitle p {
+    display: inline-block;
+    margin: 0;
+}
+
+.first-subtitle {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.second-subtitle {
+    font-style: italic;
+}
+
+.white-box {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+    font-size: 22px; /* Tăng kích thước font cho tiêu đề phụ */
+    margin-top: 0;
+    font-weight: bold;
+}
+
+.info-section {
+    margin-bottom: 20px;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: 25px;
+    margin-left: 10px;
+}
+
+.info-label {
+    font-weight: bold;
+    width: 120px; /* Tăng độ rộng cho nhãn thông tin */
+    font-size: 16px; /* Tăng kích thước font cho nhãn thông tin */
+}
+
+.preview-section {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 18px; /* Tăng kích thước font cho tiêu đề phụ */
+    font-weight: bold;
+}
+
+table {
+    width: 100%; /* Thay đổi width thành 100% để dễ điều chỉnh với responsive */
+    border-collapse: collapse;
+    font-size: 16px; /* Tăng kích thước font cho bảng */
+    background-color: #e5e5e5;
+}
+
+th, td {
+    border: none;
+    padding: 10px; /* Tăng padding cho các ô bảng */
+    text-align: left;
+}
+
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* Tăng khoảng cách trên cho footer của bảng */
+    font-size: 14px; /* Tăng kích thước font cho footer của bảng */
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Tăng khoảng cách giữa các nút */
+    margin-top: 20px;
+    padding: 0 20px; /* Điều chỉnh padding để phù hợp với bố cục */
+}
+
+.btn {
+    padding: 6px 12px; /* Tăng padding cho các nút */
+    border: none;
+    cursor: pointer;
+    background-color: #c39696;
+    font-size: 16px; /* Tăng kích thước font cho nút */
+}
+
+.tablepage {
+    padding: 10px;
+    background-color: #e5e5e5;
+}
+
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 14px; /* Tăng kích thước font cho phân trang */
+}
+
+.pagination span {
+    margin-right: 10px;
+}
+
+.pagination button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 6px 12px; /* Tăng padding cho các nút phân trang */
+    cursor: pointer;
+    margin-left: 5px;
+    font-size: 14px; /* Tăng kích thước font cho các nút phân trang */
+}
+
+/* Responsive styling for tables */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table-responsive table {
+    width: 100%; /* Đảm bảo bảng chiếm toàn bộ chiều rộng container */
+    min-width: 600px; /* Đảm bảo bảng không bị nhỏ hơn kích thước tối thiểu */
+}
+
+@media (max-width: 768px) {
+    .info-row {
+        flex-direction: column; /* Hiển thị các hàng thông tin theo cột khi màn hình nhỏ */
+    }
+
+    .info-label {
+        width: auto; /* Đặt width tự động cho nhãn khi màn hình nhỏ */
+        font-size: 14px; /* Giảm kích thước font cho nhãn thông tin */
+    }
+
+    .button-group {
+        flex-direction: column; /* Xếp các nút theo cột khi màn hình nhỏ */
+        padding: 0; /* Loại bỏ padding bên trái và phải */
+    }
+
+    .btn {
+        width: 100%; /* Đặt nút chiếm toàn bộ chiều rộng của container khi màn hình nhỏ */
+        margin-bottom: 10px; /* Tạo khoảng cách dưới mỗi nút khi xếp theo cột */
+    }
+}

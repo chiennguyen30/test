@@ -1,0 +1,114 @@
+<div class="create-term">
+  <div class="header">
+    <h2>Term Management</h2>
+    <p>
+      <a href="/term-management" style="text-decoration: underline; color:black">Term List</a> &gt; 
+      <span>Edit Term</span>
+    </p>
+  </div>
+
+  <form (ngSubmit)="onSubmit()" #editTermForm="ngForm">
+    <div class="start-button">
+      <button type="button" class="start-btn" (click)="openConfirmationDialog()">Start Term</button>
+    </div> 
+    <div class="end-button">
+      <button type="button" class="end-btn" (click)="openConfirmationDialog1()">End Term</button>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="termName">Term name</label>
+        <input 
+          type="text" 
+          id="termName" 
+          [(ngModel)]="term.termName" 
+          name="termName" 
+          placeholder="Term name" 
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="duration">Duration</label>
+        <select 
+          id="duration" 
+          [(ngModel)]="term.duration" 
+          name="duration"
+          (change)="calculateEndDate()"
+          required
+        >
+          <option value="Monthly">Monthly</option>
+          <option value="Quarterly">Quarterly</option>
+          <option value="HalfYear">HalfYear</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="startDate">Start date</label>
+        <input 
+          type="date" 
+          id="startDate" 
+          [(ngModel)]="term.startDate" 
+          name="startDate" 
+          placeholder="DD/MM/YYYY" 
+          (change)="calculateEndDate()"
+          required
+        />
+        <i class="calendar-icon"></i>
+      </div>
+      <div class="form-group">
+        <label for="endDate">End date</label>
+        <input 
+          type="date" 
+          id="endDate" 
+          [value]="term.endDate | date:'yyyy-MM-dd'" 
+          name="endDate" 
+          placeholder="DD/MM/YYYY" 
+          readonly
+        />
+        <i class="calendar-icon"></i>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="planDueDate">Plan due date</label>
+        <input 
+          type="date" 
+          id="planDueDate" 
+          [(ngModel)]="term.planDueDate" 
+          name="planDueDate" 
+          placeholder="DD/MM/YYYY" 
+          required
+        />
+        <i class="calendar-icon"></i>
+      </div>
+      <div class="form-group">
+        <label for="reportDueDate">Report due date</label>
+        <input 
+          type="date" 
+          id="reportDueDate" 
+          [(ngModel)]="term.reportDueDate" 
+          name="reportDueDate" 
+          placeholder="DD/MM/YYYY" 
+          required
+        />
+        <i class="calendar-icon"></i>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="status">Status</label>
+        <label id="status" style="max-width: 24%; font-weight: inherit;" readonly>
+          {{ term.status }}
+        </label>
+      </div>
+    </div>
+
+    <div class="form-buttons">
+      <button type="button" class="cancel-btn" (click)="onCancel()">Back</button>
+      <button type="submit" class="submit-btn">Submit</button>
+    </div>
+  </form>
+</div>

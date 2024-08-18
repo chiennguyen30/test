@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e5e5e5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.subtitle {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.subtitle p {
+    display: inline-block;
+    margin: 0;
+}
+
+.white-box {
+    background-color: #f7f3f3;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    height: 500px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.file-input-wrapper {
+    width: 303px;
+    position: relative;
+}
+
+.inline-form {
+    display: flex;
+    align-items: center;
+}
+
+.inline-form label {
+    margin-right: 10px;
+    min-width: 40px; 
+}
+
+.inline-form select {
+    flex-grow: 1;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #e5e5e5;
+    margin-left: 57px;
+}
+
+.file-info {
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 50px;
+    padding: 0 36%
+}
+
+.btn {
+    padding: 4px 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #c39696;
+}

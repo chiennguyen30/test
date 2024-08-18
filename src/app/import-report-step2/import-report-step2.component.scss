@@ -1,0 +1,64 @@
+.container-full{
+    background-color: lightgray;
+  }
+  .content{
+    background-color: white;
+    padding-top: 1%;
+    padding-left: 3%;
+    height: 800px;
+  }
+  .d-flex {
+      display: flex;
+      justify-content: center;
+      
+      button {
+        margin-right: 10%; 
+      }
+    
+      button:last-of-type {
+        margin-right: 0; 
+      }
+    }
+    .containers{
+      margin-left: 4%;
+      margin-right: 4%;
+    }
+    .button-equal {
+      width: 59.31px; /* Điều chỉnh chiều rộng theo ý muốn */
+    }
+    .form-label{
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .content-table{
+      
+      margin-left: 4%;
+      margin-right: 4%;
+     
+     
+  }
+  table {
+   width: 100%;
+   border-collapse: collapse;
+   margin: 0.5rem 0;
+   background-color: lightgrey; 
+  }
+  
+  th, td {
+   border: 1px solid #ddd; 
+   padding: 8px; 
+   text-align: left; 
+  }
+  
+  th {
+   color: black; 
+  }
+  .content-table {
+   margin: 2% auto; 
+   width: 96%;
+  }
+  
+  .text-muted {
+   color: #6c757d;
+   font-size: 0.9em;
+  }

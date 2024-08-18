@@ -1,0 +1,61 @@
+<div class="term-management">
+  <div class="header">
+    <h2>Term List</h2>
+    <div class="breadcrumbs">
+      <span>Term Management</span> &gt; <span>Term List</span>
+    </div>
+  </div>
+
+  <div class="filters">
+    <div class="search-input">
+      <input type="text" placeholder="Search" [(ngModel)]="searchName" />
+      <span style="margin-left: -25px;" class="fas fa-search"></span>
+    </div>
+    <select [(ngModel)]="selectedStatus" (change)="filterTermsByStatus()">
+      <option value="">Status</option>
+      <option *ngFor="let status of termStatuses" [value]="status">{{status}}</option>
+    </select>
+    <button (click)="searchTermsByName()">Search</button>
+  </div>
+  
+  <!-- Hide the Add button for Financial Staff -->
+  <div class="add" *ngIf="!isFinancialStaff">
+    <button class="add-btn" routerLink="/create-term">Add</button>
+  </div>
+
+  <div class="body" style="background-color: white;">
+    <table>
+      <thead>
+        <tr>
+          <th>Term</th>
+          <th>Start date</th>
+          <th>End date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let term of terms | paginate: { itemsPerPage: 5, currentPage: p }">
+          <td>{{ term.termName }}</td>
+          <td>{{ term.startDate | date }}</td>
+          <td>{{ term.endDate | date }}</td>
+          <td>{{ term.status }}</td>
+          <td class="action">
+            <button (click)="termDetails(term)">
+              <i style="color: #5275fd;" class="fa-solid fa-eye"></i>&nbsp;&nbsp;
+            </button>
+            <!-- Hide Edit and Delete buttons for Financial Staff -->
+            <button *ngIf="!isFinancialStaff" (click)="editTerm(term)"><i class="fa-solid fa-pen"></i></button>&nbsp;
+            <button *ngIf="!isFinancialStaff" (click)="deleteTerm(term)">
+              <i style="color:#dc3545;" class="fa-solid fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="pagination">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>

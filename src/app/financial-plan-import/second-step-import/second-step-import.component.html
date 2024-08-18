@@ -1,0 +1,50 @@
+<div class="container-full">
+
+
+  <div class="containers ">
+    <h2 class=" mb-4" style="font-weight: bold;">Financial Plan</h2>
+    <p class="text-muted mb-4">Plan List > Import Plan</p>
+    <div class="content">
+      <div class="text mb-2">
+        <h2 class="h5 mb-3">Step 2/2: Please preview the plan details before submitting</h2>
+      </div>
+
+      <div class="content-form">
+        <div class="mb-3">
+          <label for="file" class="form-label">Selected File:</label>
+          <input type="text" id="file" class="form-control form-control-sm mb-2 w-50" [value]="selectedFile?.name"
+            readonly />
+        </div>
+
+        <div class="content-table">
+          <table>
+            <thead>
+              <tr>
+                <th *ngFor="let header of headers">{{ header }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of fileData">
+                <td *ngFor="let header of headers">{{ row[header] }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="text-muted d-flex justify-content-end">{{ fileData.length }}/{{ fileData.length }} rows</div>
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <button routerLink="/first-step-import" class="btn btn-secondary btn-sm button-equal">Back</button>
+          <button (click)="importPlan()" class="btn btn-secondary btn-sm ">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+  </div>
+</div>

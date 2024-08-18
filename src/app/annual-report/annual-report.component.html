@@ -1,0 +1,58 @@
+<div class="annual-report-container">
+  <div class="header">
+    <div class="header-links">
+      <a class="mb-4" routerLink="/monthly-report-list">Monthly Report</a>
+      <a class="mb-4" routerLink="/annual-report">Annual Report</a>
+    </div>
+    <h2>Annual Report</h2>
+    <p class="subtitle">Annual Report List</p>
+    <div class="search-bar">
+      <input type="text" placeholder="Search by year" [(ngModel)]="searchByYear" />
+      <i class="fa fa-search"></i>
+      <button (click)="search()">Search</button>
+    </div>
+  </div>
+
+  <div class="table-container">
+    <div *ngIf="paginatedReports.length === 0">
+      <p class="no-results">{{ errorMessage }}</p>
+    </div>
+    <table *ngIf="paginatedReports.length > 0" class="report-table">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Year</th>
+          <th>Total Expense</th>
+          <th>Total Department</th>
+          <th>Created Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let report of paginatedReports; let i = index">
+          <td>{{ (currentPage - 1) * itemsPerPage + i + 1 }}</td>
+          <td>{{ report.year }}</td>
+          <td>{{ report.totalExpense | currencyFormat }}</td>
+          <td>{{ report.totalDepartment }}</td>
+          <td>{{ report.createdDate | date: 'dd/MM/yyyy' }}</td>
+          <td>
+            <a class="link" [routerLink]="['/annual-report-details', report.year]">
+              <i class="fa fa-eye"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="pagination" *ngIf="paginatedReports.length > 0">
+      <p id="pagination-info">{{ currentPage * itemsPerPage > totalResults ? totalResults : currentPage * itemsPerPage }}/{{ totalResults }} rows</p>
+      <div>
+        <button id="prev-page" (click)="changePage(-1)" [disabled]="currentPage === 1">
+          <i class="fa fa-chevron-left"></i>
+        </button>
+        <button id="next-page" (click)="changePage(1)" [disabled]="currentPage === Math.ceil(totalResults / itemsPerPage)">
+          <i class="fa fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>    
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="create-term">
+  <div class="header">
+    <h2>Term Management</h2>
+    <p>
+      <a href="/term-management" style="text-decoration: underline; color:black">Term List</a> &gt; 
+      <span>Create Term</span>
+    </p>
+  </div>
+
+  <form #termForm="ngForm" >
+    <div class="form-row">
+      <div class="form-group">
+        <label for="termName">Term name</label>
+        <input type="text" id="termName" [(ngModel)]="term.termName" placeholder="Term name" name="termName" required />
+      </div>
+      <div class="form-group">
+        <label for="duration">Duration</label>
+        <select id="duration" [(ngModel)]="term.duration" name="duration" (change)="calculateEndDate()" required>
+          <option *ngFor="let duration of durationValues" [value]="duration">{{ duration }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="startDate">Start date</label>
+        <input type="date" id="startDate" [(ngModel)]="term.startDate" placeholder="DD/MM/YYYY" name="startDate" (change)="calculateEndDate()" required />
+        <i class="calendar-icon"></i>
+      </div>
+      <div class="form-group">
+        <label for="endDate">End date</label>
+        <input type="date" id="endDate" [(ngModel)]="term.endDate" placeholder="DD/MM/YYYY" name="endDate" readonly />
+        <i class="calendar-icon"></i>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="planDueDate">Plan due date</label>
+        <input type="date" id="planDueDate" [(ngModel)]="term.planDueDate" placeholder="DD/MM/YYYY" name="planDueDate" required />
+        <i class="calendar-icon"></i>
+      </div>
+      <div class="form-group">
+        <label for="reportDueDate">Report due date</label>
+        <input type="date" id="reportDueDate" [(ngModel)]="term.reportDueDate" placeholder="DD/MM/YYYY" name="reportDueDate" required />
+        <i class="calendar-icon"></i>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="status">Status</label>
+        <label id="status" [(ngModel)]="term.status" name="status" style="max-width: 24%;" readonly>
+          {{ term.status }}
+        </label>
+      </div>
+    </div>
+
+    <div class="form-buttons">
+      <button type="button" class="cancel-btn" (click)="onCancel()">Cancel</button>
+      <button type="submit" class="submit-btn" (click)="onSubmit()">Submit</button>
+    </div>
+  </form>
+</div>

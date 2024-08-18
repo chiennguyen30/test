@@ -1,0 +1,75 @@
+<div class="create-term">
+    <div class="header">
+      <h2>Plan Management</h2>
+      <p>
+        <a href="/term-management" style="text-decoration: underline; color:black">Plan List</a> &gt;
+        <span>Edit Plan</span>
+      </p>
+    </div>
+  
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="planName">Plan name</label>
+          <input type="text" id="planName" placeholder="Plan name" [(ngModel)]="plan.financialPlanName" name="financialPlanName" required />
+        </div>
+        <div class="form-group">
+          <label for="costType">Cost type</label>
+          <select id="costType" [(ngModel)]="plan.costType" name="costType" required>
+            <option value="DirectCosts">Direct Costs</option>
+            <option value="IndirectCosts">Indirect Costs</option>
+            <option value="AdministrationCosts">Administration Costs</option>
+            <option value="OperatingCosts">Operating Costs</option>
+            <option value="MaintenanceCosts">Maintenance Costs</option>
+            <option value="ManufacturingCosts">Manufacturing Costs</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group">
+          <label for="version">Version</label>
+          <input type="number" id="version" placeholder="Version" [(ngModel)]="plan.version" name="version" required />
+        </div>
+        <div class="form-group">
+          <label for="expense">Expense</label>
+          <input type="text" id="expense" placeholder="Expense" [(ngModel)]="plan.expense" name="expense" />
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group">
+          <label for="projectName">Project name</label>
+          <input type="text" id="projectName" placeholder="Project name" [(ngModel)]="plan.projectName" name="projectName" />
+        </div>
+        <div class="form-group">
+          <label for="pic">PIC</label>
+          <input type="text" id="pic" placeholder="PIC" [(ngModel)]="plan.pic" name="pic" />
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group">
+          <label for="notes">Notes</label>
+          <input type="text" id="notes" placeholder="Notes" [(ngModel)]="plan.notes" name="notes" />
+        </div>
+        <div class="form-group">
+          <label for="supplierName">Supplier Name</label>
+          <select id="supplierName" [(ngModel)]="plan.supplierName" name="supplierName">
+            <option value="CongHT">CongHT</option>
+            <option value="KienLV">KienLV</option>
+            <option value="QuanCT">QuanCT</option>
+            <option value="QuanDT">QuanDT</option>
+            <option value="AnhVN">AnhVN</option>
+            <option value="AnhND">AnhND</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="form-buttons">
+        <button type="button" class="cancel-btn" (click)="onCancel()">Back</button>
+        <button type="submit" class="submit-btn">Submit</button>
+      </div>
+    </form>
+  </div>
+  

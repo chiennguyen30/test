@@ -1,0 +1,122 @@
+.term-management {
+  padding: 20px 40px 30px 40px; /* top, right, bottom, left */
+  font-family: Arial, sans-serif;
+  height: 762px;
+  background-color: #e5e5e5;
+  
+  .header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 24px;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .breadcrumbs {
+      font-size: 14px;
+      text-decoration: underline;
+    }
+  }
+
+  .filters {
+    display: flex;
+    margin: auto;
+    width: 50%;
+    margin-bottom: 20px;
+
+    .search-input {
+      position: relative;
+      margin-right: 50px;
+
+      input[type="text"] {
+        padding: 5px;
+        padding-right: 30px;
+        
+      }
+
+     
+    }
+
+    select {
+      margin-right: 50px;
+      padding: 5px;
+      padding-right: 60px;
+    }
+
+    button {
+      margin-right: 50px;
+      padding: 5px 10px;
+      padding-right: 20px;
+      display: flex;
+      justify-content: center;
+      border: 1px solid black;
+    }
+  }
+
+  .action button {
+    border: none;
+    background-color: white;
+  }
+
+  .add {
+    button {
+      margin-bottom: 10px;
+     
+      padding: 5px 10px;
+      padding-right: 20px;
+      float: right;
+      margin-left: auto;
+      border: 1px solid black;
+      margin-top: -35px;
+
+      &.add-btn {
+        color: black;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Add some space above the table */
+    
+    th, td {
+    
+      padding: 25px; /* Increase padding for better readability */
+      text-align: left;
+      font-size: 20px; /* Increase font size */
+    }
+  
+
+  
+    tbody tr:hover {
+      background-color: #f9f9f9; /* Slightly different hover color */
+    }
+  
+    caption {
+      font-size: 18px; /* Optional: Add a caption with a larger font size */
+      margin-bottom: 10px;
+      text-align: left;
+    }
+  }
+  .pagination {
+    display: flex;
+    justify-content: end;
+    margin-top: 20px;
+
+    span {
+      margin-left: auto;
+      padding-right: 20px;
+    }
+
+    button {
+      margin-left: 5px;
+      padding: 5px 10px;
+      border: none;
+      background-color: white;
+    }
+  }
+}

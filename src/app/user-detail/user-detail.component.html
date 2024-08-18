@@ -1,0 +1,37 @@
+<body>
+    <div class="maina">
+        <div class="breadcrumb">
+            <a routerLink="/user-management" routerLinkActive="active">User List</a> > User Details
+        </div>
+        <div class="container">
+            <div class="actions">
+                <!-- Toggle button text based on user status -->
+                <button (click)="toggleButtonText()" [ngClass]="buttonText === 'Activate user' ? 'activate' : 'deactivate'">
+                    {{ buttonText }}
+                </button>
+            </div>
+            <div class="user-details">
+                <!-- Display user details -->
+                <div class="user-info-left">
+                    <p><strong>Username:</strong> {{ user?.userName }}</p>
+                    <p><strong>Email:</strong> {{ user?.email }}</p>
+                    <p><strong>DOB:</strong> {{ user?.dob | date:'dd/MM/yyyy' }}</p>
+                    <p><strong>Department:</strong> {{ user?.departmentName }}</p>
+                    <p><strong>Role:</strong> {{ user?.description }}</p>
+                    <p><strong>Notes:</strong> {{ user?.notes }}</p>
+                </div>
+                <div class="user-info-right">
+                    <p><strong>Full name:</strong> {{ user?.fullName }}</p>
+                    <p><strong>Phone Number:</strong> {{ user?.phoneNumber }}</p>
+                    <p><strong>Address:</strong> {{ user?.address }}</p>
+                    <p ><strong>Position:</strong> {{ (user?.position) }}</p>
+                    <p *ngIf="user"><strong>Status:</strong> {{ getStatusLabel(user.status) }}</p>
+                </div>
+            </div>
+            <div class="actions-bottom">
+                <a class="edit" routerLink="/edit-user" routerLinkActive="active">Edit</a>
+                <a class="cancel" routerLink="/user-management" routerLinkActive="active">Cancel</a>
+            </div>
+        </div>
+    </div>
+</body>

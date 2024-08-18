@@ -1,0 +1,38 @@
+<body>
+    <div class="container">
+        <h1>Financial Plan</h1>
+        <div class="subtitle">
+            <a routerLink="/accountantList" class="first-subtitle"
+                style="font-weight: bold; text-decoration: underline;">Plan List </a>
+            <p class="second-subtitle" style="font-style: italic;"> > Re-up Plan</p>
+        </div>
+
+        <div class="white-box">
+            <h2>Step 1/2: Please select a file to re-upload</h2>
+            <p style="font-style: italic;">Please make sure to export the current plan and edit on the exported file before re-uploading the plan.</p>
+
+            <div class="form-group inline-form">
+                <label for="term" style="margin-left: 30px;">Term</label>
+                <p style="margin-left: 57px;">Q3-2022</p>
+            </div>
+
+            <div class="form-group inline-form">
+                <label for="term" style="margin-left: 30px;">Term</label>
+                <p style="margin-left: 57px;">Marketing</p>
+            </div>
+
+            <div class="form-group inline-form">
+                <label for="file" style="margin-left: 30px;">File</label>
+                <div class="file-input-wrapper">
+                    <input type="text" id="file" placeholder="Attach a file" readonly>                 
+                </div>
+            </div>
+            <p class="file-info" style="margin-left: 135px;">Allowed file type: xls, xlsx, csv<br>Maximum volume: 500MB</p>
+
+            <div class="button-group">
+                <button routerLink="/accountantDetails" class="btn btn-back">Back</button>
+                <button routerLink="/second-step-edit" class="btn btn-import">Import</button>
+            </div>
+        </div>
+    </div>
+</body>

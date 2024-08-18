@@ -1,0 +1,55 @@
+<div class="container-full">
+  <div class="containers">
+    <h2 class=" mb-4" style="font-weight: bold;">Financial Plan</h2>
+    <p>
+      <a href="/financial-staff-financial-plan-list" style="text-decoration: underline; color: black;">Plan List</a>
+      &gt;
+      <span>Import Plan</span>
+    </p>
+    <div class="content">
+      <div class="text mb-2">
+        <h2 class="h5 mb-3">Step 1/2: Please select a file to import</h2>
+      </div>
+
+      <div class="conten-form">
+        <div class="mb-3" hidden>
+          <div class="row">
+            <div class="col-md-1"><label for="term" class="form-label custome-color">Term</label></div>
+            <div class="col-md-10"> <select id="term" class="form-select form-select-sm w-50">
+                <option>Select</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="row">
+            <div class="col-md-1"> <label for="file" class="form-label">File</label></div>
+            <div class="col-md-10"> <input type="file" id="file" (change)="onFileSelected($event)"
+                class="form-control form-control-sm mb-2 w-50" /></div>
+
+          </div>
+
+          <div style="padding-left: 9%;">
+            <small class="form-text text-muted">Allowed file types: xls, xlsx, csv</small><br />
+            <small class="form-text text-muted">Maximum volume: 500MB</small>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="d-flex justify-content-center ">
+        <button routerLink="/financial-staff-financial-plan-list"
+          class="btn btn-secondary btn-sm  button-equal ">Back</button>
+        <button routerLink="/second-step-import" class="btn btn-secondary btn-sm ">Import</button>
+      </div>
+    </div>
+
+    <div>
+      <br>
+      <br>
+      <br>
+    </div>
+
+
+  </div>
+</div>

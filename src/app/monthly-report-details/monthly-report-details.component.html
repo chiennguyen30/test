@@ -1,0 +1,101 @@
+<div class="containers">
+  <h2 class="mb-4">Monthly Report</h2>
+  <p class="text-muted mb-4">Monthly Report > Report Detail</p>
+  
+  <div class="content">
+    <div class="content-head">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div>
+            <label class="form-label">Report: {{ firstReportItem?.fileReportName }}</label>
+          </div>    
+          <div>
+            <label class="form-label">Term: {{ firstReportItem?.termName }}</label>
+          </div>
+          <div>
+            <label class="form-label">Month: {{ firstReportItem?.month | dateFormat:'month'}}</label>
+          </div>
+          <div>
+            <label class="form-label">Department: {{ firstReportItem?.departmentName }}</label>
+          </div>
+          <div>
+            <label class="form-label">Status: {{ firstReportItem?.expenseStatus }}</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div>
+            <label class="form-label">Uploaded by: {{ firstReportItem?.uploadedByName }}</label>
+          </div>
+          <div>
+            <label class="form-label">Date: {{ firstReportItem?.uploadedDate | date: 'MMMM yyyy'  }}</label>
+          </div>
+          <div>
+            <label class="form-label">Version: {{ firstReportItem?.version }}</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-head2">
+        <div class="row">
+          <div class="col-md-6">
+            <div>
+              <label class="form-label custom-font">Total Expense = {{ totalExpense | currency: 'VND' }}</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div>
+              <label class="form-label custom-font">Biggest Expenditure = {{ biggestExpenditure }}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mb-4">
+        <div class="col d-flex justify-content-end">
+          <button routerLink="/reup-report1" class="btn btn-secondary import-button">Reup</button>
+          <button (click)="exportReport()" class="btn btn-primary">Export Report</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Expense</th>
+          <th>Cost Type</th>
+          <th>Unit Price</th>
+          <th>Amount</th>
+          <th>Total</th>
+          <th>Project Name</th>
+          <th>Supplier Name</th>
+          <th>PIC</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of ((reportItems$ | async) || []) | paginate: { itemsPerPage: 5, currentPage: p }">
+          <td>{{ item.expense }}</td>
+          <td>{{ item.costType }}</td>
+          <td>{{ item.unitPrice | currency: 'VND' }}</td>
+          <td>{{ item.amount }}</td>
+          <td>{{ item.total | currency: 'VND' }}</td>
+          <td>{{ item.projectName }}</td>
+          <td>{{ item.supplierName }}</td>
+          <td>{{ item.pic }}</td>
+          <td>{{ item.notes }}</td>
+        </tr>
+      </tbody>
+      
+      
+    </table>
+    
+    <div style="margin-top: 20px;" class="text-muted d-flex justify-content-end"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+    
+  </div>
+  
+  <div class="d-flex justify-content-center">
+    <button routerLink="/monthly-report-list" class="btn btn-secondary button-equal" style="width: 73.81px;height: 38px; margin-bottom: 10%;">Back</button>
+  </div>
+</div>

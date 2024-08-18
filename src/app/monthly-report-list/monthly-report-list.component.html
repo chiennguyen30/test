@@ -1,0 +1,107 @@
+<div class="container-full">
+  <div class="containers">
+    <div class="header-links">
+      <a class="mb-4" routerLink="/monthly-report-list">Monthly Report</a>
+      <a class="mb-4" routerLink="/annual-report">Annual Report</a>
+    </div>
+    <h2>Monthly Report</h2>
+    <p class="text-muted mb-4">Monthly Report > Report List</p>
+
+    <div class="row mb-4">
+      <div class="col">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchText" (ngModelChange)="searchReports()" />
+          <span class="input-group-text">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <select id="departmentSelect" class="form-select" aria-label="Select Department" (change)="onDepartmentChange($event)">
+            <option value="" disabled selected>Department</option>
+            <option *ngFor="let department of departments" [value]="department.departmentName">{{ department.departmentName }}</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- <div class="col">
+        <div class="form-group">
+          <select id="termSelect" class="form-select" aria-label="Select Term">
+            <option value="" disabled selected>Select Term</option>
+            <option *ngFor="let term of terms" [value]="term.termName">{{ term.termName }}</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <select id="statusSelect" class="form-select" aria-label="Select Status">
+            <option value="" disabled selected>Status</option>
+            <option *ngFor="let status of monthlyReports" [value]="status.expenseStatus">{{getStatusLabel(status.expenseStatus)}}</option>
+          </select>
+        </div>
+      </div> -->
+
+      <div class="col d-flex justify-content-end">
+        <button class="btn btn-secondary">Search</button>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col d-flex justify-content-end">
+        <button routerLink="/import-report-step1" class="btn btn-secondary import-button">Import</button>
+        <button class="btn btn-secondary" (click)="exportReportList()">Export</button>
+      </div>
+    </div>
+
+    <div class="table-responsive" *ngIf="monthlyReports.length > 0; else noReports">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>No.</th>
+            <th>Report</th>
+            <th>Month</th>
+            <th>Term</th>
+            <th>Department</th>
+            <th>Status</th>
+            <th>Version</th>
+            <th>Action</th>
+
+            <!-- Thêm các cột khác nếu cần -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let report of monthlyReports | paginate: { itemsPerPage: 5, currentPage: p }; let i = index">            <td>{{ (p - 1) * 5 + i + 1 }}</td>
+            <td>{{ report.fileReportName }}</td>
+            <td>{{ report.month | dateFormat:'month' }}</td>
+            <td>{{ report.termName }}</td>
+            <td>{{ report.departmentName }}</td>
+            <td>{{ getStatusLabel( report.expenseStatus) }}</td>
+            <td>{{ report.version }}</td>
+            <td>
+              <a [routerLink]="['/monthly-report-details', report.termId, report.departmentId]" class="btn btn-link">
+                <i style="color: #5275fd;" class="fa-solid fa-eye"></i>
+              </a>
+              
+              <button
+              class="btn btn-link text-danger"
+              (click)="openConfirmationDialog(report.termId, report.departmentId)"
+            >
+              <i class="fa-solid fa-trash"></i>
+            </button>
+            
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-muted d-flex justify-content-end">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+    <ng-template #noReports>
+      <p class="text-warning">No reports available.</p>
+    </ng-template>
+  </div>
+</div>

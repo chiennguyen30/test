@@ -1,0 +1,34 @@
+::ng-deep .mat-dialog-container {
+    background-color: #dcdcdc; // Light gray background
+    text-align: center;
+    padding: 20px; // Adjust as needed
+    max-width: 50%;
+    border-radius: 5px;
+  }
+  
+  mat-dialog-content p {
+    margin: 0; // Remove default margin
+    padding: 5px 0;
+    color: #333; // Darker text color for better contrast
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; // Space above buttons
+  }
+  
+  button.cancel-button, button.confirm-button {
+    min-width: 100px; // Set a minimum width for consistency
+    background-color: #a29b9b; // Match the button color from the image
+    color: black; // Text color
+    border-radius: 5px; // Rounded corners
+    margin: 0 10px; // Space between buttons
+  }
+  
+  button.cancel-button:hover, button.confirm-button:hover {
+    background-color: #a29b9b; // Darker shade for hover state
+  }
+  

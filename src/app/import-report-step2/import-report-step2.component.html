@@ -1,0 +1,113 @@
+<div class="container-full">
+  <div class="containers">
+    <h5 class="mb-4">Monthly Report</h5>
+    <p class="text-muted mb-4">Monthly Report > Import Report</p>
+    <div class="content">
+      <div class="text mb-2">
+        <h2 class="h5 mb-3">Step 2/2: Please preview the report details before submitting</h2>
+      </div>
+
+      <div class="content-form">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-3">
+                  <label for="term" class="form-label">Term</label>
+                </div>
+                <div class="col-md-9">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control custom-width" aria-label="Term" aria-describedby="basic-addon1" [value]="term || 'N/A'" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-3">
+                  <label for="month" class="form-label">Month</label>
+                </div>
+                <div class="col-md-9">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control custom-width" aria-label="Month" aria-describedby="basic-addon1" [value]="month || 'N/A'" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-3">
+                  <label for="file" class="form-label">File</label>
+                </div>
+                <div class="col-md-9">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control custom-width" aria-label="File" aria-describedby="basic-addon1" [value]="file || 'N/A'" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-3">
+                  <label for="department" class="form-label">Department</label>
+                </div>
+                <div class="col-md-9">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control custom-width" placeholder="Department" aria-label="Department" aria-describedby="basic-addon1" [value]="department || 'N/A'" readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-table">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Expense</th>
+                <th>Cost Type</th>
+                <th>Unit Price (VND)</th>
+                <th>Amount</th>
+                <th>Total (VND)</th>
+                <th>Project Name</th>
+                <th>Supplier Name</th>
+                <th>PIC</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of reportData | paginate: { itemsPerPage: 5, currentPage: p }">
+                <td>{{ row.expense }}</td>
+                <td>{{ row.costType }}</td>
+                <td>{{ row.unitPrice | currency:'VND' }}</td>
+                <td>{{ row.amount }}</td>
+                <td>{{ row.total | currency:'VND' }}</td>
+                <td>{{ row.projectName }}</td>
+                <td>{{ row.supplierName }}</td>
+                <td>{{ row.pic }}</td>
+                <td>{{ row.notes }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="text-muted d-flex justify-content-end"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+
+        <div class="d-flex justify-content-center">
+          <button routerLink="/import-report-step1" class="btn btn-secondary btn-sm me-2">Back</button>
+          <button (click)="submitReport()" class="btn btn-primary btn-sm">Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <br />
+      <br />
+      <br />
+      <br />
+    </div>
+  </div>
+</div>

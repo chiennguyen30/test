@@ -1,0 +1,137 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e5e5e5;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.subtitle {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.subtitle p {
+    display: inline-block;
+    margin: 0;
+}
+
+.first-subtitle {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.second-subtitle {
+    font-style: italic;
+}
+
+.white-box {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+h2 {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+.info-section {
+    margin-bottom: 20px;
+}
+
+.info-row {
+    display: flex;
+    margin-bottom: 25px;
+    margin-left: 10px;
+}
+
+.info-label {
+    font-weight: bold;
+    width: 100px;
+}
+
+.preview-section {
+    padding: 10px;
+    border-radius: 5px;
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    background-color: #e5e5e5;
+}
+
+th, td {
+    border: none;
+    padding: 8px;
+    text-align: left;
+}
+
+.table-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 40%;
+}
+
+.btn {
+    padding: 4px 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #c39696;
+}
+
+.tablepage {
+    padding: 10px;
+    background-color: #e5e5e5;
+}
+
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.pagination span {
+    margin-right: 10px;
+}
+
+.pagination button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 5px;
+}

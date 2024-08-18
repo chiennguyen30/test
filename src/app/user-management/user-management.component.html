@@ -1,0 +1,56 @@
+<body>
+    <div class="content">
+        <h2>User List</h2>
+        <a style="color: black;" routerLink="/user-management" routerLinkActive="active">User Management</a> > User List
+        <div class="search-bar">
+            <div>
+                <input type="text" placeholder="Search by user name">
+                <a>Role</a>
+                <select>
+                    <option value="hiddenValue" hidden>Select</option>
+                    <option value="admin">Admin</option>
+                    <option value="FinancialStaff">FinancialStaff</option>
+                    <option value="Accountant">Accountant</option>
+                   
+
+                </select>
+                <button>Search</button>
+            </div>
+            <a class="add" routerLink="/create-user" routerLinkActive="active">Add</a>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Department</th>
+                    <th>Position</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users | paginate: { itemsPerPage: 3, currentPage: p }; let index = index ">
+                    <td>{{ index + 1 }}</td>        
+                    <td>{{ user.userName }}</td>  
+                    <td>{{ user.email }}</td>   
+                    <td>{{ user.departmentName }}</td> 
+                    <td>{{ user.position }}</td> 
+                    
+                    <td class="actions">
+                        <a style="color: #5275fd;" class="fas fa-eye" [routerLink]="['/user-detail', user.id]" routerLinkActive="active"></a> &nbsp;
+                        <a class="fa-solid fa-pen" [routerLink]="['/edit-user', user.id]" routerLinkActive="active"></a>&nbsp;
+                        <a style="color:#dc3545;" class="fas fa-trash" (click)="openConfirmationDialog(user.id)"></a>
+
+
+                    </td>
+                </tr>
+               
+            </tbody>
+        </table>
+        <div style="margin-top: 30px;" class="text-muted d-flex justify-content-end">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+    </div>
+</body>

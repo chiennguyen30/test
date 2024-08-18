@@ -1,0 +1,50 @@
+<div class="create-term">
+  <div class="header">
+    <h2>Term Management</h2>
+    <p>
+      <a href="/term-management" style="text-decoration: underline; color: black;">Term List</a> &gt;
+      <span>term-details</span>
+    </p>
+  </div>
+
+  <form>
+    <div class="term-details">
+      <div class="term-detail">
+        <span class="label">Term name</span>
+        <span class="value">{{ term?.termName }}</span>
+      </div>
+      <div class="term-detail">
+        <span class="label">Duration</span>
+        <span class="value">{{ term?.duration }}</span>
+      </div>
+      <div class="term-detail">
+        <span class="label">Start date</span>
+        <span class="value">{{ term?.startDate | date }}</span>
+      </div>
+      <div class="term-detail">
+        <span class="label">End date</span>
+        <span class="value">{{ term?.endDate | date }}</span>
+      </div>
+      <div class="term-detail">
+        <span class="label">Plan due date</span>
+        <span class="value">{{ term?.planDueDate | date }}</span>
+      </div>
+      <div class="term-detail">
+        <span class="label">Report due date</span>
+        <span class="value">{{ term?.reportDueDate | date }}</span>
+      </div>
+      <div class="term-detail">
+          <span class="label">Status</span>
+          <span class="value">{{ term?.status }}</span>
+        </div>
+    </div>
+
+   
+    
+
+    <div class="form-buttons">
+      <button type="button" class="cancel-btn" (click)="onCancel()">Back</button>
+      <button type="submit" class="submit-btn" *ngIf="!isFinancialStaff" (click)="onEdit()">Edit</button>
+    </div>
+  </form>
+</div> 

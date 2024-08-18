@@ -1,0 +1,312 @@
+/* Reset margin và padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e5e5e5;
+    margin: 0;
+    padding: 20px;
+    height: auto;
+    width: auto;
+}
+
+/* Container */
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+/* Headings */
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #666;
+}
+
+.first-subtitle {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.second-subtitle {
+    font-style: italic;
+}
+
+/* White Box */
+.white-box {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-height: 500px;
+    overflow: hidden; /* Prevent overflow */
+}
+
+/* Overview Table */
+.overview-table {
+    background-color: #e5e5e5;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+.overview-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.overview-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+/* Total Amount */
+.total-amount {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0;
+    background-color: #e5e5e5;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Buttons */
+.top-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    
+}
+
+.btn {
+    padding: 10px 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-reup, .btn-export {
+    background-color: #c39696;
+    color: #fff;
+}
+
+.btn-reup:hover, .btn-export:hover {
+    background-color: #a47a6f;
+}
+.top-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-reup {
+    margin-right: 20px; 
+}
+
+.btn-export {
+    background-color: #c39696;
+    color: #fff;
+}
+
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.pagination span {
+    margin-right: 10px;
+}
+
+.pagination button {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+/* Table */
+table {
+    width: auto;
+    border-collapse: collapse;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Responsive Table */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.table th, .table td {
+    padding: 12px;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .table th, .table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .table thead {
+        display: none;
+    }
+
+    .table tbody tr {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .table tbody tr td {
+        display: block;
+        padding: 10px;
+        border: 1px solid #ddd;
+        position: relative;
+    }
+
+    .table tbody tr td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #f9f9f9;
+        padding: 5px;
+        font-size: 14px;
+    }
+}
+
+.create-plan {
+    padding: 20px 40px 30px 40px;
+    font-family: Arial, sans-serif;
+    height:auto ; 
+    
+    .header {
+      margin-bottom: 20px;
+  
+      h2 {
+        font-size: 24px;
+        margin: 0;
+        color: #333;
+        font-weight: bold;
+      }
+  
+      p {
+        font-size: 14px;
+        color: black;
+        margin: 5px 0 0;
+      }
+    }
+  
+    form {
+      background-color: #f9f9f9;    
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 100px 20px 300px 20px; // Reduced padding
+      margin: 0 auto; // Center the form
+      max-width: 1200px; // Increased maximum width
+  
+      .plan-details {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        max-width: 100%;
+        padding-left:150px;
+        
+        .plan-detail {
+          width: 50%;
+          margin-bottom: 10px;
+          
+          .label {
+            font-weight: bold;
+            display: inline-block;
+            width: 40%;
+          }
+  
+          .value {
+            display: inline-block;
+            width: 60%;
+          }
+        }
+  
+        .status-detail {
+          width: 100%;
+          margin-top: 20px;
+  
+          .label,
+          .value {
+            width: auto;
+          }
+        }
+      }
+  
+      .form-buttons {
+        display: flex;
+        justify-content: center;
+        margin-top: 2%;
+        gap: 20px;
+     
+  
+        button {
+          padding: 10px 30px;
+          border: none;
+          border-radius: 4px;
+          font-size: 14px;
+          cursor: pointer;
+  
+          &.cancel-btn {
+            background-color: #ccc;
+            color: black;
+            &:hover {
+              background-color: #bbb;
+            }
+          }
+  
+          &.submit-btn {
+            background-color: #ccc;
+            color: black;
+  
+            &:hover {
+              background-color: #bbb;
+            }
+          }
+        }
+      }
+    }
+  }
+  

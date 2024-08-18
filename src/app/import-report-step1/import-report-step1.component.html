@@ -1,0 +1,77 @@
+<form (ngSubmit)="onSubmit(termSelect, monthSelect, fileInput)">
+  <div class="container-full">
+    <div class="containers">
+      <h2 class="mb-4">Monthly Report</h2>
+      <p class="text-muted mb-4">Monthly Report > Import Report</p>
+      <div class="content">
+        <div class="text mb-2">
+          <h3 class="h5 mb-3">Step 1/2: Please select a file to import</h3>
+        </div>
+
+        <div class="conten-form">
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-1">
+                <label for="term" class="form-label custome-color">Term</label>
+              </div>
+              <div class="col-md-10">
+                <select id="term" #termSelect class="form-select form-select-sm w-50">
+                  <option *ngFor="let term of terms" [value]="term">{{ term }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-1">
+                <label for="month" class="form-label">Month</label>
+              </div>
+              <div class="col-md-10">
+                <select id="month" #monthSelect class="form-select form-select-sm w-50">
+                  <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="row">
+              <div class="col-md-1">
+                <label for="file" class="form-label">File</label>
+              </div>
+              <div class="col-md-10">
+                <input 
+                  type="file" 
+                  id="file" 
+                  #fileInput 
+                  class="form-control form-control-sm mb-2 w-50" 
+                  accept=".xls,.xlsx,.csv"  
+                />
+              </div>
+            </div>
+            <div style="padding-left: 9%;">
+              
+              <small class="form-text text-muted">Allowed file types: xls, xlsx, csv</small><br />
+              <small class="form-text text-muted">Maximum volume: 500MB</small><br/>
+              <a href="file/Monthly_Report_Sample.xlsx" download>Download Sample Template</a>
+            </div>
+          </div>
+          
+          
+        </div>
+
+        <div class="d-flex justify-content-center">
+          <button type="button" routerLink="/monthly-report-list" class="btn btn-secondary btn-sm button-equal">Back</button>
+          <button type="submit" class="btn btn-secondary btn-sm">Import</button>
+        </div>
+      </div>
+
+      <div>
+        <br />
+        <br />
+        <br />
+      </div>
+    </div>
+  </div>
+</form>
